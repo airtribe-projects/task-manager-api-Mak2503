@@ -1,8 +1,10 @@
 const express = require('express');
-const { getAllTasks, createTask, getTaskById, updateTask, deleteTask } = require('../controllers/tasksController');
+const { getAllTasks, getAllTasksByPriority, createTask, getTaskById, updateTask, deleteTask } = require('../controllers/tasksController');
 const router = express.Router();
 
 router.get('/', getAllTasks);
+
+router.get('/priority/:level', getAllTasksByPriority);
 
 router.post('/', createTask);
 
