@@ -32,7 +32,7 @@ tap.test("GET /tasks", async (t) => {
   t.hasOwnProp(response.body[0], "title");
   t.hasOwnProp(response.body[0], "description");
   t.hasOwnProp(response.body[0], "completed");
-  t.type(response.body[0].id, "number");
+  t.type(response.body[0].id, "string");
   t.type(response.body[0].title, "string");
   t.type(response.body[0].description, "string");
   t.type(response.body[0].completed, "boolean");
@@ -55,6 +55,26 @@ tap.test("GET /tasks/:id", async (t) => {
 tap.test("GET /tasks/:id with invalid id", async (t) => {
   const response = await server.get(`${BASE_URL}/999`);
   t.equal(response.status, 404);
+  t.end();
+});
+
+tap.test("GET /tasks/* unknown route", async (t) => {
+  const response = await server.get(`${BASE_URL}/unknown/path`);
+  t.equal(response.status, 404);
+  t.match(response.body, {
+    error: "Not Found",
+  });
+  t.end();
+});
+
+tap.test("POST /tasks with malformed JSON", async (t) => {
+  const response = await server
+    .post(BASE_URL)
+    .set("Content-Type", "application/json")
+    .send('{"title":');
+
+  t.equal(response.status, 400);
+  t.hasOwnProp(response.body, "message");
   t.end();
 });
 

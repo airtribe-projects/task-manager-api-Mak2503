@@ -1,9 +1,12 @@
+const { v4: uuidv4 } = require('uuid');
 const { tasks } = require('../task.json');
+
+const PRIORITY_LEVELS = ['high', 'medium', 'low'];
 
 const getAllTasks = (req, res) => {
     const { completed } = req.query;
     if (completed !== undefined) {
-        const filteredTasks = tasks.filter(task => task.completed === (completed === 'true'));
+        const filteredTasks = tasks.filter(task => task.completed === Boolean(completed));
         filteredTasks.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
         return res.send(filteredTasks);
     }
@@ -28,7 +31,7 @@ const createTask = (req, res) => {
 
     try {
         const newTask = {
-            id: tasks.length + 1,
+            id: uuidv4(),
             title: req.body.title,
             description: req.body.description,
             completed: req.body.completed,
@@ -43,7 +46,7 @@ const createTask = (req, res) => {
 }
 
 const getTaskById = (req, res) => {
-    const task = tasks.find(task => task.id === parseInt(req.params.id));
+    const task = tasks.find(task => task.id === req.params.id);
     if (task) {
         res.status(200).send(task);
     } else {
@@ -64,11 +67,11 @@ const updateTask = (req, res) => {
         return res.status(400).send('Completed must be a boolean');
     }
 
-    if (req.body.priority && !['high', 'medium', 'low'].includes(req.body.priority)) {
+    if (req.body.priority && !PRIORITY_LEVELS.includes(req.body.priority)) {
         return res.status(400).send('Invalid priority. Must be high, medium, or low');
     }
 
-    const taskIndex = tasks.findIndex(task => task.id === parseInt(req.params.id));
+    const taskIndex = tasks.findIndex(task => task.id === req.params.id);
     if (taskIndex !== -1) {
         tasks[taskIndex] = { ...tasks[taskIndex], ...req.body };
         res.status(200).send(tasks[taskIndex]);
@@ -78,7 +81,7 @@ const updateTask = (req, res) => {
 }
 
 const deleteTask = (req, res) => {
-    const taskIndex = tasks.findIndex(task => task.id === parseInt(req.params.id));
+    const taskIndex = tasks.findIndex(task => task.id === req.params.id);
     if (taskIndex !== -1) {
         tasks.splice(taskIndex, 1);
         res.status(200).send('Task deleted');

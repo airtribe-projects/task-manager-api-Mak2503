@@ -1,7 +1,7 @@
 {
   "tasks": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Set up environment",
       "description": "Install Node.js, npm, and git",
       "completed": true,
@@ -9,7 +9,7 @@
       "createdAt": "2024-06-05"
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Create a new project",
       "description": "Create a new project using the Express application generator",
       "completed": true,
@@ -17,7 +17,7 @@
       "createdAt": "2024-06-02"
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "Install nodemon",
       "description": "Install nodemon as a development dependency",
       "completed": true,
@@ -25,7 +25,7 @@
       "createdAt": "2024-06-03"
     },
     {
-      "id": 4,
+      "id": "4",
       "title": "Install Express",
       "description": "Install Express",
       "completed": false,
@@ -33,7 +33,7 @@
       "createdAt": "2024-06-04"
     },
     {
-      "id": 5,
+      "id": "5",
       "title": "Install Mongoose",
       "description": "Install Mongoose",
       "completed": false,
@@ -41,7 +41,7 @@
       "createdAt": "2024-06-05"
     },
     {
-      "id": 6,
+      "id": "6",
       "title": "Install Morgan",
       "description": "Install Morgan",
       "completed": false,
@@ -49,7 +49,7 @@
       "createdAt": "2024-06-05"
     },
     {
-      "id": 7,
+      "id": "7",
       "title": "Install body-parser",
       "description": "Install body-parser",
       "completed": false,
@@ -57,7 +57,7 @@
       "createdAt": "2024-06-08"
     },
     {
-      "id": 8,
+      "id": "8",
       "title": "Install cors",
       "description": "Install cors",
       "completed": false,
@@ -65,7 +65,7 @@
       "createdAt": "2024-06-08"
     },
     {
-      "id": 9,
+      "id": "9",
       "title": "Install passport",
       "description": "Install passport",
       "completed": false,
@@ -73,7 +73,7 @@
       "createdAt": "2024-06-08"
     },
     {
-      "id": 10,
+      "id": "10",
       "title": "Install passport-local",
       "description": "Install passport-local",
       "completed": false,
@@ -81,7 +81,7 @@
       "createdAt": "2024-06-08"
     },
     {
-      "id": 11,
+      "id": "11",
       "title": "Install passport-local-mongoose",
       "description": "Install passport-local-mongoose",
       "completed": false,
@@ -89,7 +89,7 @@
       "createdAt": "2024-06-08"
     },
     {
-      "id": 12,
+      "id": "12",
       "title": "Install express-session",
       "description": "Install express-session",
       "completed": false,
@@ -97,7 +97,7 @@
       "createdAt": "2024-06-08"
     },
     {
-      "id": 13,
+      "id": "13",
       "title": "Install connect-mongo",
       "description": "Install connect-mongo",
       "completed": false,
@@ -105,7 +105,7 @@
       "createdAt": "2024-06-08"
     },
     {
-      "id": 14,
+      "id": "14",
       "title": "Install dotenv",
       "description": "Install dotenv",
       "completed": false,
@@ -113,7 +113,7 @@
       "createdAt": "2024-06-08"
     },
     {
-      "id": 15,
+      "id": "15",
       "title": "Install jsonwebtoken",
       "description": "Install jsonwebtoken",
       "completed": false,
